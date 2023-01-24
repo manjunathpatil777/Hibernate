@@ -1,0 +1,68 @@
+package Controller;
+import java.util.Scanner; 
+import Dao.Sample;
+public class Mainclass {
+public static void main(String[] args) {
+	Scanner sc=new Scanner (System.in);
+	Sample s1=new Sample();
+	boolean flag=true;
+	while(flag)
+	{
+		System.out.println("1.addEmp\n2.fetchEmp\n3.remove\n4.update\n5.fetchAll\n6.removeAll\n7.Exit");
+		switch(sc.nextInt())
+		{
+		case 1:
+		{
+		System.out.println("enter the emp id");	
+		int id=sc.nextInt();
+		System.out.println("enter the name");
+		String name =sc.next();
+		System.out.println("enter the sal");	
+		double sal=sc.nextDouble();
+		System.out.println("enter the job role");
+		String job =sc.next();
+		s1 .addEmp(id,name,sal,job);
+		
+		}break;
+	case 2:
+	{
+	System.out.println("enter the emp id");
+	int id=sc.nextInt();
+	s1.fetchEmp(id);
+	}break;
+	case 3:
+	{
+	System.out.println("enter the emp id");
+	int id=sc.nextInt();
+	s1.removeEmp(id);
+	}break;
+	case 4:
+	{
+	System.out.println("enter emp id");
+	int id=sc.nextInt();
+	System.out.println("enter the new salary");
+	double sal=sc.nextDouble();
+	s1.updateEmpsal(id,sal);
+	}break;
+	case 5:
+	{
+		s1.fetchAll();
+	}break;
+	case 6:
+	{
+		s1.deleteAll();
+	}break;
+	case 7:
+	{
+		flag=false;
+		System.out.println("Thank you");
+	}break;
+	 default:
+	{
+		System.out.println("invalid option");
+	}break;
+	
+	}	
+	}
+	}	
+}
